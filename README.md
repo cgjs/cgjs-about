@@ -14,6 +14,10 @@ options:
   --no-arguments              # print JSON without arguments info
 ```
 
+### Installation
+
+`npm install -g cgjs-about` and a globally available `gjs` is all you need to use this tool.
+
 ### Example
 
 `cgjs-about Gtk.Button`
