@@ -14,4 +14,8 @@ options:
   --no-arguments              # print JSON without arguments info
 ```
 
+### Example
+
+`cgjs-about Gtk.Button`
+
 <img src="img/cgjs-gtk-button.png" width="600" />
