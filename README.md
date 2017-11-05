@@ -14,4 +14,4 @@ options:
   --no-arguments              # print JSON without arguments info
 ```
 
-<img src="img/cgjs-gtk-button.png" width="320" />
+<img src="img/cgjs-gtk-button.png" width="600" />
