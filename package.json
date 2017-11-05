@@ -1,0 +1,25 @@
+{
+  "name": "cgjs-about",
+  "version": "0.0.0",
+  "description": "An utility to query GJS namespaces",
+  "bin": "about.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebReflection/cgjs-about.git"
+  },
+  "keywords": [
+    "gjs",
+    "info",
+    "documentation",
+    "namespace",
+    "introspection",
+    "gobject"
+  ],
+  "author": "Andrea Giammarchi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebReflection/cgjs-about/issues"
+  },
+  "homepage": "https://github.com/WebReflection/cgjs-about#readme"
+}
