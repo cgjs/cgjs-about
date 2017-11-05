@@ -13,3 +13,5 @@ options:
   --json                      # print JSON output
   --no-arguments              # print JSON without arguments info
 ```
+
+<img src="img/cgjs-gtk-button.png" width="320" />
