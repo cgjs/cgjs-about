@@ -254,6 +254,19 @@ function prettyPrint(json) {
       const out = [];
       const info = json[key][sub];
       switch (key) {
+        case 'struct':
+          out.push(`${dim(key)} ${bold(sub)} {`);
+          for (const k in (info.methods || {})) {
+            out.push(`\n  ${k}`);
+            out.push(inlineArguments(info.methods[k]));
+            out.push(' {}');
+          }
+          if (info.fields) {
+            out.push('\n\n  ' + dim('// fields'));
+            out.push(showList(Object.keys(info.fields)), dim('; '));
+          }
+          out.push(`\n}`);
+          break;
         case 'namespace':
           out.push(showNamespace(info, key, sub));
           break;
@@ -292,7 +305,7 @@ function prettyPrint(json) {
           }
           if (info.properties) {
             out.push('\n\n  ' + dim('// properties'));
-            out.push(showList(info.properties), '; ');
+            out.push(showList(info.properties), dim('; '));
           }
           out.push(`\n}`);
           break;
