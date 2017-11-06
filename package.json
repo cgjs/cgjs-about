@@ -6,7 +6,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WebReflection/cgjs-about.git"
+    "url": "git+https://github.com/cgjs/cgjs-about.git"
   },
   "keywords": [
     "gjs",
@@ -19,7 +19,7 @@
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/WebReflection/cgjs-about/issues"
+    "url": "https://github.com/cgjs/cgjs-about/issues"
   },
-  "homepage": "https://github.com/WebReflection/cgjs-about#readme"
+  "homepage": "https://github.com/cgjs/cgjs-about#readme"
 }
