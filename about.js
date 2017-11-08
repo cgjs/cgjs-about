@@ -77,6 +77,7 @@ ${dim('options:')}
 
 function singular(name) {
   switch (name) {
+    case 'abstracts': return 'abstract class';
     case 'namespace': return name;
     case 'classes': return 'class';
     case 'properties': return 'property';
@@ -107,7 +108,9 @@ function walkThrough(nmsp, info) {
       (nmsp.flags || (nmsp.flags = [])).push(name);
       break;
     case InfoType.OBJECT:
-      (nmsp.classes || (nmsp.classes = {}))[name] = objectWalker(info);
+      const details = objectWalker(info);
+      const key = details.abstract ? 'abstracts' : 'classes';
+      (nmsp[key] || (nmsp[key] = {}))[name] = details;
       break;
     case InfoType.INTERFACE:
       (nmsp.interfaces || (nmsp.interfaces = {}))[name] = interfaceWalker(info);
@@ -205,6 +208,7 @@ function interfaceWalker(info) {
 
 function objectWalker(info) {
   const out = {};
+  out.abstract = GIRepository.object_info_get_abstract(info);
   let length = GIRepository.object_info_get_n_constants(info);
   for (let i = 0; i < length; i++) {
     walkThrough(out, GIRepository.object_info_get_constant(info, i));
@@ -277,6 +281,7 @@ function prettyPrint(json) {
           });
           out.push(`\n}`);
           break;
+        case 'abstract class':
         case 'interface':
         case 'class':
           out.push(`${dim(key)} ${bold(sub)} {`);
@@ -379,6 +384,7 @@ function showNamespace(info, key, sub) {
         list = Object.keys(info[key]);
         out.push(`\n\n  ${dim(key)} ${list.length}${showList(list, '', '\n  ', 1)}`);
         break;
+      case 'abstracts':
       case 'interfaces':
       case 'classes':
       case 'enums':
